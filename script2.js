@@ -27,7 +27,7 @@ function createTree() {
         const radius = Math.random() * 150;
         const x = Math.cos(angle) * radius;
         // Dentro de la función createFrondoseTree
-const y = (Math.sin(angle) * (radius * 0.5)) - (radius * 0.4); 
+const y = (Math.sin(angle) * (radius * 1)) - (radius * 0.3); 
 // Reducimos un poco el factor de elevación para que la copa no suba tanto hacia los botones        
         leaf.style.left = `${x}px`;
         leaf.style.top = `${y}px`;
