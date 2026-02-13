@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    overflow: hidden; /* Evita que el botón genere scroll al huir */
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.heart-svg {
+    width: 200px;
+    fill: #ff0000;
+    filter: drop-shadow(0 0 10px #ff0000) drop-shadow(0 0 30px #ff0000);
+    animation: heartbeat 1.2s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+/* ... (todo lo demás igual) ... */
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px; /* Espacio para que no salte el diseño */
+}
+.btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    color: #ff0000;
+    background: transparent;
+    border: 2px solid #ff0000;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+#btnNo {
+    /* Quitamos el absolute de aquí para que inicie en su sitio */
+    position: relative; 
+    transition: 0.2s ease;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.btn-secondary {
+    color: #888;
+    border-color: #444;
+    box-shadow: none;
+}
+
+.btn:hover {
+    background: #ff0000;
+    color: #000;
+    box-shadow: 0 0 40px #ff0000;
+    transform: translateY(-5px);
+}
