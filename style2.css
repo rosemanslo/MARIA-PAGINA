@@ -1,10 +1,136 @@
 body {
-    background-color: #111;
+    margin: 0;
+    background: radial-gradient(circle, #1a0000 0%, #000 100%);
     color: white;
-    height: 100vh;
+    font-family: 'Georgia', serif;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.letter-container {
+    padding: 40px 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    border-bottom: 1px solid #ff000033;
+}
+
+#poema {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ffcccc;
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+}
+
+.main-container {
     display: flex;
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.counter-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    font-family: sans-serif;
+}
+
+#timer {
+    font-size: 2rem;
+    color: #ff4d4d;
+    text-align: left;
+    border-left: 2px solid #ff0000;
+    padding-left: 20px;
+}
+
+/* ÁRBOL MEJORADO */
+.tree-side {
+    flex: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Alinea la base del árbol al fondo */
+    position: relative;
+    padding-bottom: 20px; 
+}
+
+.tree-base {
+    position: relative;
+    width: 30px;
+    height: 250px; /* Altura fija del tronco */
+    background: linear-gradient(to right, #2b150f, #4b2c20);
+    border-radius: 5px;
+}
+
+/* El matorral de corazones */
+#canopy {
+    position: absolute;
+    top: 0; /* Empieza desde la punta del tronco */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.heart-leaf {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #ff0000;
+    transform: rotate(-45deg);
+    animation: bloom 2s forwards;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+.heart-leaf::before, .heart-leaf::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #ff0000;
+    border-radius: 50%;
+}
+.heart-leaf::before { top: -6px; left: 0; }
+.heart-leaf::after { left: 6px; top: 0; }
+
+.decision-box {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-main {
+    padding: 15px 30px;
+    background: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Para que el crecimiento sea fluido */
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.btn-sub {
+    padding: 10px 20px;
+    background: #333;
+    color: #888;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+@keyframes bloom {
+    0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+    100% { transform: scale(1) rotate(-45deg); opacity: 0.8; }
+}
+
+@media (max-width: 768px) {
+    .main-container { flex-direction: column; }
+    .tree-side { min-height: 400px; }
 }

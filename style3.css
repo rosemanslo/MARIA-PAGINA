@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    background: #000;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.message-container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+h1 {
+    color: white;
+    font-family: 'Georgia', serif;
+    font-size: 3rem;
+    text-shadow: 0 0 20px #ff0000;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
