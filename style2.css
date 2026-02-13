@@ -25,16 +25,16 @@ body {
 
 .main-container {
     display: flex;
-    min-height: 80vh;
+    flex-direction: column; /* Forzamos orden vertical en móvil */
+    min-height: 100vh;
     padding: 20px;
+    align-items: center;
 }
 
 .counter-side {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    z-index: 10; /* Asegura que el reloj y botones estén al frente */
+    margin-bottom: 20px;
 }
 
 #timer {
@@ -47,12 +47,12 @@ body {
 
 /* ÁRBOL MEJORADO */
 .tree-side {
-    flex: 1.5;
+    width: 100%;
+    height: 400px; /* Espacio fijo para el árbol */
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Alinea la base del árbol al fondo */
-    position: relative;
-    padding-bottom: 20px; 
+    align-items: flex-end;
+    margin-top: 50px; /* Empuja el árbol un poco hacia abajo */
 }
 
 .tree-base {
@@ -94,12 +94,12 @@ body {
 .heart-leaf::after { left: 6px; top: 0; }
 
 .decision-box {
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     gap: 15px;
-    align-items: center;
-    width: 100%;
     justify-content: center;
+    position: relative;
+    z-index: 20; /* Los botones deben estar sobre las hojas del árbol */
 }
 
 .btn-main {

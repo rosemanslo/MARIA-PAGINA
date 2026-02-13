@@ -19,13 +19,16 @@ function createTree() {
     for (let i = 0; i < totalHearts; i++) {
         const leaf = document.createElement('div');
         leaf.className = 'heart-leaf';
+
+        
         
         // Forma de copa orgánica (distribución radial)
         const angle = Math.random() * Math.PI * 2;
         const radius = Math.random() * 150;
         const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * (radius * 0.8) - 100; // Un poco achatado arriba
-        
+        // Dentro de la función createFrondoseTree
+const y = (Math.sin(angle) * (radius * 0.5)) - (radius * 0.4); 
+// Reducimos un poco el factor de elevación para que la copa no suba tanto hacia los botones        
         leaf.style.left = `${x}px`;
         leaf.style.top = `${y}px`;
         
